@@ -15,7 +15,7 @@ jobs:
         with:
           node-version-file: 'package.json'
       # Pick your own package manager and build script
-      - run: npm install
+      - run: yarn install
       - run: NUXT_APP_BASE_URL=metronome-nuxt npx nuxt build --preset github_pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
