@@ -69,6 +69,10 @@ import { usePlayer } from './lib/player'
 import { notes } from './lib/note'
 import himeImage from './assets/hime.png'
 
+useHead({
+  title: 'あにょじメトロノーム'
+})
+
 const noteTextForm = ref('')
 const noteText = computedWithControl(() => null, () => noteTextForm.value)
 
