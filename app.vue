@@ -68,9 +68,17 @@ import { computedWithControl } from '@vueuse/core'
 import { usePlayer } from './lib/player'
 import { notes } from './lib/note'
 import himeImage from './assets/hime.png'
+import ogpImage from './assets/ogp.png'
 
 useHead({
-  title: 'あにょじメトロノーム'
+  title: 'あにょじメトロノーム',
+  meta: [
+    { property: 'og:title', content: 'あにょじメトロノーム' },
+    { property: 'og:type', content: 'website' },
+    { property: 'twitter:title', content: 'あにょじメトロノーム' },
+    { name: 'twitter:image', content: ogpImage },
+    { name: 'twitter:card', content: 'summary' }
+  ]
 })
 
 const noteTextForm = ref('')
