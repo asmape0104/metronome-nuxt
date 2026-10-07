@@ -2,6 +2,11 @@
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## License
+
+The original source code in this repository is licensed under the [MIT License](./LICENSE).
+Third-party libraries, images, audio, and video remain subject to their respective licenses and rights.
+
 ## Setup
 
 Make sure to install dependencies:
