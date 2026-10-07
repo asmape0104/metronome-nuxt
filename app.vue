@@ -6,7 +6,7 @@
         <div style="width: calc(1200px - 896px); display: flex; flex-direction: column; justify-content: space-between; align-items: center;">
           <div class="balloon-wrapper" v-html="nowMessage[0] === '@' ? nowMessage.indexOf('\n') === -1 ? '' : nowMessage.slice(nowMessage.indexOf('\n')) : nowMessage">
           </div>
-          <img :src="himeImage" width="200" class="hime-image" :class="himeFilter" />
+          <img :src="himeImageSrc" width="200" class="hime-image" :class="himeFilter" />
         </div>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 64px; height: calc(675px - 504px)">
@@ -69,6 +69,9 @@ import { usePlayer } from './lib/player'
 import { notes } from './lib/note'
 import himeImage from './assets/hime.png'
 import ogpImage from './assets/ogp.png'
+
+// Keep the SSR asset URL during hydration; Vite resolves client imports to absolute URLs.
+const himeImageSrc = useState('hime-image-src', () => himeImage)
 
 useHead({
   title: 'あにょじメトロノーム',
@@ -139,7 +142,7 @@ body {
   font-size: 24px;
 }
 
-/deep/ .circle {
+:deep(.circle) {
   position: relative;
   z-index: 1;
   width: 32px;
@@ -149,49 +152,49 @@ body {
   border: 2px solid var(--circle-color);
 }
 
-/deep/ .circle.big {
+:deep(.circle.big) {
   width: 60px;
   height: 60px;
   margin: -14px;
 }
 
-/deep/ .circle.active {
+:deep(.circle.active) {
   background: var(--circle-color);
 }
 
-.counter :nth-child(9n + 1 of .circle), /deep/ .meg {
+.counter :nth-child(9n + 1 of .circle), :deep(.meg) {
   --circle-color: #BCBCBC;
 }
 
-.counter :nth-child(9n + 2 of .circle), /deep/ .ruri {
+.counter :nth-child(9n + 2 of .circle), :deep(.ruri) {
   --circle-color: #FE76CE;
 }
 
-.counter :nth-child(9n + 3 of .circle), /deep/ .hime {
+.counter :nth-child(9n + 3 of .circle), :deep(.hime) {
   --circle-color: #D353FF;
 }
 
-.counter :nth-child(9n + 4 of .circle), /deep/ .kaho {
+.counter :nth-child(9n + 4 of .circle), :deep(.kaho) {
   --circle-color: orange;
 }
 
-.counter :nth-child(9n + 5 of .circle), /deep/ .ginko {
+.counter :nth-child(9n + 5 of .circle), :deep(.ginko) {
   --circle-color: #7ec8e1;
 }
 
-.counter :nth-child(9n + 6 of .circle), /deep/ .kozue {
+.counter :nth-child(9n + 6 of .circle), :deep(.kozue) {
   --circle-color: #47ad86;
 }
 
-.counter :nth-child(9n + 7 of .circle), /deep/ .kosuzu {
+.counter :nth-child(9n + 7 of .circle), :deep(.kosuzu) {
   --circle-color: #eada00;
 }
 
-.counter :nth-child(9n + 8 of .circle), /deep/ .sayaka {
+.counter :nth-child(9n + 8 of .circle), :deep(.sayaka) {
   --circle-color: #3634b9;
 }
 
-.counter :nth-child(9n + 9 of .circle), /deep/ .tsuzuri {
+.counter :nth-child(9n + 9 of .circle), :deep(.tsuzuri) {
   --circle-color: #9e2626;
 }
 
